@@ -56,7 +56,9 @@ export default class TrackVisibility extends Component {
      * Exposed for testing but allows node other than internal wrapping <div /> to be tracked
      * for visibility
      */
-    nodeRef: PropTypes.object
+    nodeRef: PropTypes.object,
+
+    additionalScrollviews: PropTypes.array
   };
 
   static defaultProps = {
@@ -67,7 +69,8 @@ export default class TrackVisibility extends Component {
     className: null,
     offset: 0,
     partialVisibility: false,
-    nodeRef: null
+    nodeRef: null,
+    additionalScrollviews: []
   };
   
   constructor(props) {
@@ -111,9 +114,15 @@ export default class TrackVisibility extends Component {
     }
   }
 
-  attachListener() {
+  attachListener = () => {
     window.addEventListener("scroll", this.throttleCb);
     window.addEventListener("resize", this.throttleCb);
+    this.props.additionalScrollviews.forEach((className) => {
+      const elements = document.getElementsByClassName(className);
+      for(let i = 0; i < elements.length; i += 1){
+        elements[i].addEventListener('scroll', this.throttleCb)
+      }
+    })
   }
 
   removeListener() {
@@ -165,6 +174,9 @@ export default class TrackVisibility extends Component {
   isComponentVisible = () => {
     const html = document.documentElement;
     const { once } = this.props;
+    if(!this.nodeRef){
+      return
+    }
     const boundingClientRect = this.nodeRef.getBoundingClientRect();
     const windowWidth = window.innerWidth || html.clientWidth;
     const windowHeight = window.innerHeight || html.clientHeight;

@@ -2,6 +2,7 @@
 
 exports[`<TrackVisibility /> When rendering the component Can be rendered without children 1`] = `
 <TrackVisibility
+  additionalScrollviews={Array []}
   className={null}
   nodeRef={null}
   offset={0}
@@ -16,6 +17,7 @@ exports[`<TrackVisibility /> When rendering the component Can be rendered withou
 
 exports[`<TrackVisibility /> When rendering the component Should be able to use a render props 1`] = `
 <TrackVisibility
+  additionalScrollviews={Array []}
   className={null}
   nodeRef={null}
   offset={0}
@@ -36,6 +38,7 @@ exports[`<TrackVisibility /> When rendering the component Should be able to use 
 
 exports[`<TrackVisibility /> When rendering the component Should fallback clientHeight when window propeties are not defined 1`] = `
 <TrackVisibility
+  additionalScrollviews={Array []}
   className={null}
   nodeRef={null}
   offset={0}
@@ -50,6 +53,7 @@ exports[`<TrackVisibility /> When rendering the component Should fallback client
 
 exports[`<TrackVisibility /> when partially visible Can check partial visibilty 1`] = `
 <TrackVisibility
+  additionalScrollviews={Array []}
   className={null}
   nodeRef={null}
   offset={0}
