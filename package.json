@@ -11,7 +11,7 @@
     "react-on-screen",
     "screen"
   ],
-  "main": "lib/index.js",
+  "main": "dist/ReactOnScreen.min.js",
   "typings": "./index.d.ts",
   "scripts": {
     "lint": "eslint src/",
